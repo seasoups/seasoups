@@ -1,0 +1,912 @@
+      
+
+<!DOCTYPE html>
+<html>
+  
+  <head><script type='text/javascript' src='https://neocities.org/hzrC6-4C01A4sIrUKK9Yiql7mFqJgOOYH0r5Us9_rmeR0haizdlGc_XPAiKwvvSrJeaKMwvaiEJkH2FwKvl_-w=='></script><script type='text/javascript' src='https://neocities.org/vbjhmSsrOMD93T7Kt1nEfj4ivtJv0bblJ5BhbADkvy0Jp_CUI4j9v9ZrhLYOGMmgqR7ieU41fO8ZxcRBmZbMvw=='></script><script type='text/javascript' src='https://neocities.org/U5j5-XS0uR6zdxO1z79mU-WeQaERvD6f7SsYPUyHa-Z7x5-f7QvIGjBkC6qJGD_dDvujg2WlUF7h8_Ld6wLfyQ=='></script><script type='text/javascript' src='https://neocities.org/uMD1FA3Y035kjYp5SBEkujE4BveYm2dsmO92lhWAqvlpGnrMb7-ojcCGyuUM7ayMf2PajtFfeIIM5P39vkYkZw=='></script><script type='text/javascript' src='https://neocities.org/bVbsNxqTuSAhEl_Wzi-atV-6I8VxXVtWVLBqhY_4Z9pb3V_LLIPOM2yB8tnosrBNvnqWRkfW_a34Se4rc45L4A=='></script>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seasoul's Seasoups</title>
+    <style>
+    
+      @font-face {
+        font-family: 'KiwiSoda';
+        src: url('https://seasoups.neocities.org/Fonts/KiwiSoda.ttf') format('truetype');
+      }
+      
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+        margin: 0;
+        background-image: url('https://seasoups.neocities.org/blueTile.png');
+        background-repeat: repeat;
+        background-color: radial-gradient(circle, #1e90ff, #000080);
+        cursor: url('https://seasoups.neocities.org/woodspoonCursor.png') 4 4, auto;
+      }
+      
+      body * {
+        pointer-events: 'none';
+      }
+      
+      .nutrition-label a:hover,
+      #otterLink:hover,
+      .book-hover-mask:hover,
+      .todo-item:hover,
+      .todo-text:hover,
+      .compass-img:hover,
+      .book-img:hover,
+      .can-image:hover {
+        pointer-events: 'auto';
+        cursor: url('https://seasoups.neocities.org/woodspoonCursorHover.png') 4 4, auto;
+      }
+      
+      
+      
+      .content {
+        position: relative;
+        z-index: 0; 
+        color: white;
+        text-align: center;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+      }
+      
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+      
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+          transform: scale(1);
+        }
+        to {
+          opacity: 0;
+          transform: scale(1.2);
+        }
+      }
+      
+      .bubble {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        pointer-events: none;
+        opacity: 0;
+        animation: fadeIn 0.5s forwards;
+        transition: opacity 0.5s ease;
+      }
+      
+      
+      .top-bar-container {
+        margin: -50px 0px 0 80px;
+        position: relative;
+        z-index: 3;
+        border-radius: 19px;
+        background: linear-gradient(145deg, #cacaca, #f0f0f0);
+        box-shadow:  5px 5px 0px #5a5a5a,
+                     -5px -5px 0px #ffffff;
+      }
+      
+      .top-bar {
+        height: 120px;
+        background-color: #add8e6;
+        margin: 0px 0 0 60px;
+        border-top-left-radius: 12px;
+        background-image: url('https://seasoups.neocities.org/woodenTexture.png');
+        background-color: linear-gradient(145deg, #cacaca, #f0f0f0);
+        box-shadow:  5px 5px 0px #5a5a5a,
+                     -5px -5px 0px #ffffff;
+        background-repeat: repeat;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      }
+
+      .nail{
+        width: 100%;
+        max-width: 35px;
+        height: auto;
+        display: block;
+        margin: 0 auto; 
+        position: relative;
+        z-index: 2;
+      }
+
+      .nutrition-label {
+        transform: rotate(4deg);
+        filter: contrast(.7) brightness(1.15);
+        max-width: 300px;
+        margin: -60px 0 0 40px;
+        padding: 20px;
+        background: url('https://seasoups.neocities.org/newsPaperTexture.jpg') repeat, #fcfcfc;
+        background-blend-mode: multiply;
+        font-family: 'KiwiSoda', monospace;
+        font-size: 18px; 
+        color: #000;
+        border: 1px solid #000; 
+        border-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAJElEQVQYV2NkYGD4z8DAwMDIyMhAfExMTCwMTAwMDEwMDIxfAQB0mgX/6Y+8ngAAAABJRU5ErkJggg==') 8; /* Pixelated border */
+        background-color: linear-gradient(145deg, #cacaca, #f0f0f0);
+        box-shadow:  5px 5px 0px #5a5a5a,
+                     -5px -5px 0px #ffffff;
+        text-align: left;
+        position: relative;
+        z-index: 2;
+      }r
+
+      .nutrition-label h2 {
+        font-size: 30px;
+        margin-bottom: 10px;
+        border-bottom: 10px solid #000;
+        padding-bottom: 4px;
+      }
+
+      .nutrition-label .serving-info {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+
+      .nutrition-label hr {
+        border: none;
+        border-top: 2px solid #000;
+        margin: 10px 0;
+      }
+
+      .daily-value {
+        font-size: 20px;
+        margin: 6px 0;
+      }
+
+      .daily-value a {
+        color: #000;
+        text-decoration: none;
+        display: flex;
+        justify-content: space-between;
+        font-weight: bold;
+      }
+
+      .daily-value a:hover {
+        text-decoration: underline;
+      }
+
+      .percent {
+        font-weight: normal;
+      }
+
+      .nutrition-label .footnote {
+        font-size: 12px;
+        margin-top: 10px;
+        font-style: italic;
+      }
+
+      .otter-chef{
+        position: relative; 
+        z-index: 999;
+        width: 150%;
+        max-width: 480px;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+      }
+      
+      #otterLink {
+        display: block;
+        width: 240px;
+        height: 240px;
+        position: relative;
+        z-index: 999;
+        margin: 0 auto;
+      }
+      
+      canvas {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 0;
+        pointer-events: auto;
+      }
+      
+      .postit {
+        transform: rotate(15deg);
+        filter: contrast(.7) brightness(1.15);
+        max-width: 250px;
+        max-height: 250px;
+        padding: 20px;
+        background: url('https://seasoups.neocities.org/newsPaperTexture.jpg') repeat, #fcfcfc;
+        background-blend-mode: multiply;
+        background-color:#89CFF0;
+        font-family: 'KiwiSoda', monospace;
+        font-size: 19px;
+        color: #000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: left;
+        position: absolute;
+        margin: 500px 0 0 1000px;
+        z-index: -1;
+        border-radius: 19px;
+        background-color: linear-gradient(145deg, #cacaca, #89CFF0);
+        box-shadow:  5px 5px 0px #5a5a5a,
+                     -5px -5px 0px #ffffff;
+      }
+      
+      .todo-label {
+        transform: rotate(-8deg);
+        filter: contrast(.7) brightness(1.15);
+        max-width: 300px;
+        margin: -10px 0px 0 200px;
+        padding: 20px;
+        background: url('https://seasoups.neocities.org/newsPaperTexture.jpg') repeat, #fcfcfc;
+        background-blend-mode: multiply;
+        background-color:#FDFD96;
+        font-family: 'KiwiSoda', monospace;
+        font-size: 19px;
+        color: #000;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: left;
+        position: relative;
+        z-index: 2;
+      }r
+      
+      .todo-label h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+        border-bottom: 10px solid #000;
+        padding-bottom: 4px;
+      }
+      
+      .todo-checkbox {
+        margin-top: 2px;
+        transform: scale(1.2);
+        cursor: pointer;
+      }
+      
+      .todo-item {
+        font-size: 18px;
+        margin: 8px 0;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .todo-checkbox {
+        margin-top: 2px;
+        transform: scale(1.2);
+        cursor: pointer;
+      }
+
+      .todo-text {
+        flex: 1;
+        line-height: 1.3;
+      }
+      
+      .todo-text-completed {
+        text-decoration: line-through;
+        opacity: 0.6;
+      }
+      
+      .compass-link {
+        
+        display: inline-block;
+        transition: transform 0.2s ease-in-out;
+        position: absolute;
+        transform: translate(600px, 740px);
+        height: 800px;
+        width:800px;
+        clip-path: polygon(23% 9%, 75% 8%, 70% 92%, 32% 92%);
+        z-index:2;
+      }
+  
+      .compass-img {
+        height: 800px;
+        width: auto;
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+        filter: drop-shadow(0 0 0 transparent);
+        z-index:3;
+      }
+  
+      .compass-link:hover .compass-img {
+        animation: wobble 0.6s ease-in-out infinite;
+        filter: drop-shadow(0 0 10px #e9c46a);
+      }
+      
+      .window-container:hover .can-image {
+        animation: wobble 0.6s ease-in-out infinite;
+      }
+      
+      
+      .book-Container{
+        display: inline-block;
+        transition: transform 0.2s ease-in-out;
+        position: absolute;
+        height: 450px;
+        z-index:2;
+        transform: translate(-400px, 1450px); /* Moved left of the compass */
+        transform: rotate(45px);
+      }
+      
+      .book-img {
+        position: absolute;
+        width: 1200px;
+        height: 500px;
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+        filter: drop-shadow(0 0 0 transparent);
+        z-index: 3;
+        clip-path: polygon(23% 1%, 43% 3%, 100% 7%, 100% 70%, 100% 94%, 36% 99%, 0 66%, 0 41%);
+        -webkit-clip-path: (23% 1%, 43% 3%, 100% 7%, 100% 70%, 100% 94%, 36% 99%, 0 66%, 0 41%);
+        pointer-events: auto;
+      }
+      
+      .book-Container:hover .book-img {
+        animation: wobble 0.6s ease-in-out infinite;
+        filter: drop-shadow(0 0 10px #e76f51);
+      }
+      
+      .can-image {
+        width: 100%;
+        max-width: 1200px;
+        height: auto;
+        display: block;
+        margin-top: 0;
+        position: relative;
+        z-index: 3;
+        clip-path: polygon(51% 5%, 78% 14%, 76% 94%, 51% 97%, 24% 94%, 23% 56%, 21% 13%);
+        -webkit-clip-path: polygon(51% 5%, 78% 14%, 76% 94%, 51% 97%, 24% 94%, 23% 56%, 21% 13%);
+      }
+
+
+      .window-container {
+        position: relative;
+        margin: -100px 0 60px 930px;
+        bottom: 0;
+        z-index: 2;
+        width: 800px;
+        text-align: center;
+        clip-path: polygon(51% 5%, 78% 14%, 76% 94%, 51% 97%, 24% 94%, 23% 56%, 21% 13%);
+        -webkit-clip-path: polygon(51% 5%, 78% 14%, 76% 94%, 51% 97%, 24% 94%, 23% 56%, 21% 13%);
+      }
+    
+      .table-surface {
+        pointer-events: none;
+        position: relative;
+        margin: -550px auto 0 auto;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        width: 100%;
+        height: 660px;
+        background: url('https://seasoups.neocities.org/woodPlankTexture.jpg') repeat-x center/100%;
+        box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.1);
+        border: 1px solid #000; 
+        border-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAAJElEQVQYV2NkYGD4z8DAwMDIyMhAfExMTCwMTAwMDEwMDIxfAQB0mgX/6Y+8ngAAAABJRU5ErkJggg==') 8; 
+      }
+      
+  
+      @keyframes wobble {
+        0%   { transform: rotate(0deg); }
+        25%  { transform: rotate(3deg); }
+        50%  { transform: rotate(-3deg); }
+        75%  { transform: rotate(1deg); }
+        100% { transform: rotate(0deg); }
+      }
+      
+      .rope {
+        position: absolute;
+        transform:  rotate(25deg);
+        height: 1950px;
+        background:url('https://seasoups.neocities.org/assets/brownRope.png') repeat, #fcfcfc;
+        z-index:-5;
+      }
+      
+      .player {
+        position: absolute;
+        width: 500px;
+        height: 700px;
+        background: url('https://seasoups.neocities.org/assets/intercom.png') no-repeat center/contain;
+        transform: translate(500px, -770px);
+        background-blend-mode:multiply;
+      }
+  
+      .control {
+        position: absolute;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        pointer-events: auto;
+      }
+  
+      /* Adjust these buttons' sizes/positions to match your image's layout */
+      .mute {
+        left: 22px;
+        bottom: 75px;
+        width: 40px;
+        height: 40px;
+        pointer-events: auto;
+      }
+  
+      .play {
+        left: 140px;
+        bottom: 185px;
+        width: 40px;
+        height: 40px;
+        pointer-events: auto;
+        background:linear-gradient(to bottom, #ededed 5%, #dfdfdf 100%);
+      	background-color:#ededed;
+      	border:1px solid #dcdcdc;
+      	display:inline-block;
+      	color:#777777;
+      	font-size:10px;
+      	font-weight:bold;
+      }
+  
+      .prev {
+        left: 120px;
+        bottom: 75px;
+        width: 40px;
+        height: 40px;
+        pointer-events: auto;
+      }
+  
+      .loop {
+        left: 165px;
+        bottom: 75px;
+        width: 40px;
+        height: 40px;
+        pointer-events: auto;
+      }
+  
+      .next {
+        left: 210px;
+        bottom: 75px;
+        width: 40px;
+        height: 40px;
+        pointer-events: auto;
+      }
+  
+      audio {
+        display: none;
+      }
+      
+      
+    </style>
+    <link href="/style.css" rel="stylesheet" type="text/css" media="all">
+    <link rel="icon" type="image/png" href="https://seasoups.neocities.org/seasoupIcon.png">
+    
+    
+    
+  </head>
+  
+  
+  
+  <body>
+    
+    <canvas id="bubblesCanvas"></canvas>
+    
+    <a href="https://seasoups.neocities.org/sitemap/" class="compass-link">
+      <img src="https://seasoups.neocities.org/assets/compassD.png" 
+           alt="Compass" class="compass-img">
+    </a>
+    
+    <a href="https://seasoups.neocities.org/guestlog/" class="book-Container">
+      <img src="https://seasoups.neocities.org/assets/ditherCaptain.png" 
+          alt="guestbook" class="book-img">
+    </a>
+    
+    <a href="https://seasoups.neocities.org" id="otterLink">
+      <img src="https://seasoups.neocities.org/otterChefPixel.png" alt="otterchef" class="otter-chef" id="otterImage">
+    </a>
+    
+    
+    <div class="top-bar"></div>
+    
+
+    <div class="nutrition-label">
+      <img src="https://seasoups.neocities.org/nailcrush.png" alt="can" class="nail">
+      <h2>Seasoup Facts (wip)</h2>
+      <div class="serving-info">Served: <!-- FC2 Counter  Starts here -->
+      <script language="javascript" type="text/javascript" src="//counter1.fc2.com/counter.php?id=40392546&main=1"></script><noscript><img src="//counter1.fc2.com/counter_img.php?id=40392546&main=1" /></noscript>
+      <!-- FC2 Counter  Ends here --> visits</div>
+      <hr>
+      <div class="daily-value">
+        <a href="/psych/">Psychology<span class="percent">5%</span></a>
+      </div>
+      <div class="daily-value">
+        <a href="/fart/">Art<span class="percent">4%</span></a>
+      </div>
+      <div class="daily-value">
+        <a href="/gameing/">Media <span class="percent">3%</span></a>
+      </div>
+      <div class="daily-value">
+        <a href="/lalala/">Fashion <span class="percent">2%</span></a>
+      </div>
+      <div class="daily-value">
+        <a href="/aboutme/">Seasoup<span class="percent">100000%</span></a>
+      </div>
+      <hr>
+      <div class="footnote">* Click to learn what's inside my noodle</div>
+    </div>
+      
+    <div class="todo-label">
+      <h2>Seasoul's To-Do List</h2>
+      <div class="serving-info"></div>
+      <hr>
+      <div class="todo-item">
+        <label for="todo1" class="todo-text-completed">Make Bubbles Pop when Clicked</label>
+      </div>
+      <div class="todo-item">
+        <label for="todo2" class="todo-text">Perfect my soup recipe</label>
+      </div>
+      <div class="todo-item">
+        <label for="todo3" class="todo-text">Spill Soup when Clicked</label>
+      </div>
+      <div class="todo-item">
+        <label for="todo4" class="todo-text">Add my studies to my Psych Page</label>
+      </div>
+      <div class="todo-item">
+        <label for="todo5" class="todo-text-completed">Teach an otter how to cook my soup</label>
+      </div>
+      <div class="todo-item">
+        <label for="todo5" class="todo-text">start a soup factory where otters cook my soup</label>
+      </div>
+      <div class="todo-item">
+        <label for="todo5" class="todo-text">add ambiance (my sick ass spotify playlist) </label>
+      </div>
+      <hr>
+      <div class="footnote">* I am curently enveloped in finals so don't expect anything soon TwT</div>
+    </div>
+    
+    
+    <div style="position: relative;">
+      <img src="https://seasoups.neocities.org/wavewindow.gif" style="position: absolute; left: 1000px; top: -650px; height: 700px; box-shadow: 0 4px 8px rgba(0, 0, 0, 1); z-index: -3;">
+   </div>
+   
+    <div class="player">
+      <button class="control play">▶</button>
+      <button class="control prev">⏮</button>
+      <button class="control next">⏭</button>
+      <button class="control loop">🔁</button>
+      <button class="control mute">🔇</button>
+      <audio id="playerAudio" src="https://drive.usercontent.google.com/download?id=1SBLiN9-lWENqenfmfOXghGGXcaUYynY5&export=view&authuser=0" loop></audio>
+    </div>
+  
+    <div class="window-container">
+      <img src="https://seasoups.neocities.org/seasoupPixel.png" alt="can" class="can-image" style="clip-path: polygon(22% 13%, 77% 6%, 75% 95%, 24% 95%);">
+    </div>
+    
+    
+    <div class="table-surface"></div>
+    
+    <script>
+    const audio = document.getElementById("audio");
+    const playlist = ["https://drive.usercontent.google.com/download?id=1SBLiN9-lWENqenfmfOXghGGXcaUYynY5&export=view&authuser=0", "song2.mp3", "song3.mp3"];
+    let currentTrack = 0;
+    let isLooping = false;
+
+    document.querySelector(".mute").addEventListener("click", () => {
+      audio.muted = !audio.muted;
+    });
+
+    document.querySelector(".play").addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+      }
+    });
+
+    document.querySelector(".prev").addEventListener("click", () => {
+      currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
+      audio.src = playlist[currentTrack];
+      audio.play();
+    });
+
+    document.querySelector(".next").addEventListener("click", () => {
+      currentTrack = (currentTrack + 1) % playlist.length;
+      audio.src = playlist[currentTrack];
+      audio.play();
+    });
+
+    document.querySelector(".loop").addEventListener("click", () => {
+      isLooping = !isLooping;
+      audio.loop = isLooping;
+    });
+
+    audio.addEventListener("ended", () => {
+      if (!audio.loop) {
+        currentTrack = (currentTrack + 1) % playlist.length;
+        audio.src = playlist[currentTrack];
+        audio.play();
+      }
+    });
+  </script>
+    
+    <script>
+      
+      // Visitor counter using CountAPI
+      const namespace = 'seasoups.neocities.org';
+      const key = 'visitor-counter';
+      const apiUrl = `https://api.countapi.xyz/hit/${encodeURIComponent(namespace)}/${encodeURIComponent(key)}`;
+
+      fetch(apiUrl)
+        .then(response => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then(data => {
+          if (data.value !== undefined) {
+            document.getElementById('visitor-counter').textContent = data.value;
+          } else {
+            console.error('CountAPI response missing value:', data);
+            document.getElementById('visitor-counter').textContent = '1';
+          }
+        })
+        .catch(error => {
+          console.error('Error fetching visitor count:', error);
+          document.getElementById('visitor-counter').textContent = '1';
+        });
+        
+    </script>
+    
+    <script>
+        const body = document.body;
+      
+        const defaultCursor = "url('https://seasoups.neocities.org/woodspoonCursor.png') 4 4, auto";
+        const clickCursor = "url('https://seasoups.neocities.org/woodspoonCursor.png') 4 4, auto";
+      
+        document.addEventListener('mousedown', () => {
+          body.style.cursor = clickCursor;
+        });
+      
+        document.addEventListener('mouseup', () => {
+          body.style.cursor = defaultCursor;
+        });
+      </script>
+      
+      <script>
+    const canvas = document.getElementById('bubblesCanvas');
+    const ctx = canvas.getContext('2d');
+    
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    
+    window.addEventListener("load", resizeCanvas);
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+  
+    const tableSurface = document.querySelector('.table-surface');
+    
+    function getTableBounds() {
+      const rect = tableSurface.getBoundingClientRect();
+      return {
+        top: rect.top + window.scrollY,
+        bottom: rect.bottom + window.scrollY,
+        left: rect.left + window.scrollX,
+        right: rect.right + window.scrollX
+      };
+    }
+  
+    const bubbleTexture = new Image();
+    bubbleTexture.src = 'https://seasoups.neocities.org/bubble.png';
+    let textureLoaded = false;
+    bubbleTexture.onload = () => {
+      textureLoaded = true;
+    };
+  
+    class Bubble {
+      constructor() {
+        this.reset();
+      }
+      
+      containsPoint(x, y) {
+        const dx = this.x - x;
+        const dy = this.y - (y + window.scrollY); // Convert screen to doc Y
+        return dx * dx + dy * dy <= this.radius * this.radius;
+      }
+      
+      
+  
+      reset() {
+        // Position bubbles in document coordinates
+        this.x = Math.random() * window.innerWidth;
+        this.y = Math.random() * document.body.scrollHeight;
+        this.z = Math.random() * 400 + 10;
+        this.baseRadius = Math.random() * 25 + 20;
+        this.vx = (Math.random() - 0.2) * 0.9;
+        this.vy = (Math.random() - 0.2) * 0.9;
+        this.baseOpacity = Math.random() * 0.5 + 0.2;
+        this.lifetime = 0;
+        this.fadeInDuration = 1.0;
+        this.fadeOutDuration = 2.0;
+        this.maxLifetime = 30;
+        this.totalLifetime = 32;
+        this.isAlive = true;
+      }
+  
+      update(deltaTime) {
+        if (!this.isAlive) return;
+  
+        this.x += this.vx;
+        this.y += this.vy;
+        this.lifetime += deltaTime;
+  
+        const depthFactor = 100 / this.z;
+        this.radius = Math.min(this.baseRadius * depthFactor, 80);
+  
+        // Boundary collision with viewport
+        if (this.x - this.radius < 0 || this.x + this.radius > window.innerWidth) {
+          this.vx = -this.vx * (0.6 + Math.random() * 0.6);
+          this.x = Math.max(this.radius, Math.min(window.innerWidth - this.radius, this.x));
+        }
+  
+        if (this.y - this.radius < 0 || this.y + this.radius > document.body.scrollHeight) {
+          this.vy = -this.vy * (0.6 + Math.random() * 0.6);
+          this.y = Math.max(this.radius, Math.min(document.body.scrollHeight - this.radius, this.y));
+        }
+  
+        // Table collision detection using document coordinates
+        const tableBounds = getTableBounds();
+        if (
+          this.y + this.radius > tableBounds.top &&
+          this.y - this.radius < tableBounds.bottom &&
+          this.x + this.radius > tableBounds.left &&
+          this.x - this.radius < tableBounds.right
+        ) {
+          // Bounce off the top of the table
+          if (this.vy > 0 && this.y < tableBounds.top + 50) {
+            this.vy = -Math.abs(this.vy) * (0.6 + Math.random() * 0.3);
+            this.y = tableBounds.top - this.radius;
+          }
+          // Bounce off sides of table
+          else if (this.x < tableBounds.left + 50) {
+            this.vx = -Math.abs(this.vx) * (0.6 + Math.random() * 0.3);
+            this.x = tableBounds.left - this.radius;
+          }
+          else if (this.x > tableBounds.right - 50) {
+            this.vx = Math.abs(this.vx) * (0.6 + Math.random() * 0.3);
+            this.x = tableBounds.right + this.radius;
+          }
+        }
+  
+        if (this.lifetime >= this.totalLifetime) {
+          this.isAlive = false;
+        }
+      }
+  
+      getCurrentOpacity() {
+        let opacity = this.baseOpacity;
+        if (this.lifetime < this.fadeInDuration) {
+          opacity *= (this.lifetime / this.fadeInDuration);
+        } else if (this.lifetime > this.maxLifetime) {
+          const fadeOutProgress = (this.lifetime - this.maxLifetime) / this.fadeOutDuration;
+          opacity *= Math.max(0, 1 - fadeOutProgress);
+        }
+        const depthFactor = 100 / this.z;
+        return opacity * depthFactor;
+      }
+  
+      draw() {
+        if (!this.isAlive) return;
+  
+        // Convert document coordinates to screen coordinates
+        const screenX = this.x;
+        const screenY = this.y - window.scrollY;
+        
+        // Only draw if bubble is visible on screen
+        if (screenY + this.radius < 0 || screenY - this.radius > window.innerHeight) {
+          return;
+        }
+  
+        ctx.save();
+        const currentOpacity = this.getCurrentOpacity();
+        if (currentOpacity <= 0) {
+          ctx.restore();
+          return;
+        }
+        ctx.globalAlpha = currentOpacity;
+  
+        if (textureLoaded) {
+          ctx.beginPath();
+          ctx.arc(screenX, screenY, this.radius, 0, Math.PI * 2);
+          ctx.clip();
+          const size = this.radius * 2;
+          ctx.drawImage(
+            bubbleTexture,
+            screenX - this.radius,
+            screenY - this.radius,
+            size,
+            size
+          );
+        } else {
+          ctx.shadowBlur = 10 * (100 / this.z);
+          ctx.shadowColor = `rgba(255, 255, 255, ${0.5 * (100 / this.z)})`;
+          ctx.beginPath();
+          ctx.arc(screenX, screenY, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(255, 255, 255, ${currentOpacity})`;
+          ctx.fill();
+        }
+  
+        ctx.restore();
+      }
+    }
+  
+    const bubbles = [];
+    const maxBubbles = 100;
+    let lastSpawnTime = 0;
+    const spawnInterval = 100;
+  
+    let lastTime = performance.now();
+  
+    function animate() {
+      const currentTime = performance.now();
+      const deltaTime = (currentTime - lastTime) / 1000;
+      lastTime = currentTime;
+  
+      if (currentTime - lastSpawnTime >= spawnInterval && bubbles.length < maxBubbles) {
+        bubbles.push(new Bubble());
+        lastSpawnTime = currentTime;
+      }
+  
+      for (let i = bubbles.length - 1; i >= 0; i--) {
+        if (!bubbles[i].isAlive) {
+          bubbles.splice(i, 1);
+        }
+      }
+  
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      bubbles.forEach(bubble => {
+        bubble.update(deltaTime);
+        bubble.draw();
+      });
+  
+      requestAnimationFrame(animate);
+    }
+    
+    canvas.addEventListener('click', (e) => {
+      for (let i = bubbles.length - 1; i >= 0; i--) {
+        if (bubbles[i].containsPoint(e.clientX, e.clientY)) {
+          // Create pixel pop effect
+          for (let j = 0; j < 20; j++) {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = 'white';
+            particle.style.left = `${e.clientX + Math.random() * 20 - 10}px`;
+            particle.style.top = `${e.clientY + window.scrollY + Math.random() * 20 - 10}px`;
+            particle.style.opacity = 1;
+            particle.style.zIndex = 9999;
+            particle.style.pointerEvents = 'none';
+            particle.style.transition = 'all 0.5s ease-out';
+            document.body.appendChild(particle);
+    
+            setTimeout(() => {
+              particle.style.transform = `translate(${Math.random()*40-20}px, ${Math.random()*40-20}px)`;
+              particle.style.opacity = 0;
+            }, 10);
+            setTimeout(() => particle.remove(), 600);
+          }
+    
+          bubbles[i].isAlive = false;
+          break;
+        }
+      }
+    });
+  
+    animate();
+  </script>
+
+
+    
+  </body>
+</html>
